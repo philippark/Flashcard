@@ -15,3 +15,7 @@ std::string Flashcard::get_front(){
 std::string Flashcard::get_back(){
     return back_;
 }
+
+int Flashcard::get_priority(){
+    return priority_;
+}

@@ -8,6 +8,7 @@ public:
     Flashcard(std::string front, std::string back);
     std::string get_front();
     std::string get_back();
+    int get_priority();
 
 
 private:
@@ -15,5 +16,7 @@ private:
     std::string back_;
     int priority_ = 0;
 };
+
+
 
 #endif
