@@ -10,11 +10,17 @@ public:
     std::string get_back();
     int get_priority();
 
+    void update();
+
 
 private:
     std::string front_;
     std::string back_;
     int priority_ = 0;
+
+    float interval;
+    int n;
+    float efactor;
 };
 
 

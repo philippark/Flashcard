@@ -1,5 +1,13 @@
 flashcards for pronunciation
 
-- get regular spaced retrieval flashcards mechanically done
+- get regular spaced retrieval flashcards mechanically done:
+* allow user to say again (1min), hard, good, easy.
+* keep track of time, 
+* increment spaced retrival
+
+later on:
+- allow multiple study decks (which datastructure to use? how to store all this data?)
+- implement QT
+
 - allow user input audio
 - use an api to get pronunciation audio

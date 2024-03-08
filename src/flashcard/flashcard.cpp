@@ -19,3 +19,8 @@ std::string Flashcard::get_back(){
 int Flashcard::get_priority(){
     return priority_;
 }
+
+
+void Flashcard::update(){
+    
+}
