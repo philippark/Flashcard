@@ -11,3 +11,15 @@ later on:
 
 - allow user input audio
 - use an api to get pronunciation audio
+
+
+
+
+3/7/24:
+- just for today, lets allow 2 options: pass, fail. If pass, set next study date to next day. If fail, don't change date.
+- then let the pq for deck to store based on dates. For now, let's do only 0 for today, 1 for tmrw. So essentially, for now use interval.
+what i need:
+- flashcard getDueDate(), and update() which takes in score. (1 for pass, 0 for fail).
+
+
+then for the future, slowly build the complexity of spaced repitition algo
