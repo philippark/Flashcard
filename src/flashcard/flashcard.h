@@ -10,6 +10,8 @@ public:
     std::string get_back();
     int get_priority();
 
+    int get_interval();
+
     void update();
 
 
@@ -18,10 +20,12 @@ private:
     std::string back_;
     int priority_ = 0;
 
-    float interval;
+    float interval = 0;
     int n;
     float efactor;
 };
+
+bool operator<(Flashcard a, Flashcard b);
 
 
 

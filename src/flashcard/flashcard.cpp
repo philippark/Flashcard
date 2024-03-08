@@ -20,7 +20,14 @@ int Flashcard::get_priority(){
     return priority_;
 }
 
+int Flashcard::get_interval(){
+    return interval;
+}
 
 void Flashcard::update(){
-    
+
+}
+
+bool operator<(Flashcard a, Flashcard b){
+    return a.get_interval() < b.get_interval();
 }
