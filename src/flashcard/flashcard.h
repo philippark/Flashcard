@@ -12,7 +12,7 @@ public:
 
     int get_interval();
 
-    void update();
+    void update(int score);
 
 
 private:

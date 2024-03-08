@@ -24,10 +24,19 @@ int Flashcard::get_interval(){
     return interval;
 }
 
-void Flashcard::update(){
-
+void Flashcard::update(int score){
+    switch (score){
+        //failed
+        case 0:
+            interval = 0;
+            break;
+        //passed
+        case 1:
+            interval++;
+            break;
+    }
 }
 
 bool operator<(Flashcard a, Flashcard b){
-    return a.get_interval() < b.get_interval();
+    return a.get_interval() > b.get_interval();
 }

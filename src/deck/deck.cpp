@@ -30,12 +30,18 @@ void Deck::study(){
                 std::cout << card.get_back() << std::endl;
         }
 
+        int score;
         std::cout << "Fail [0], Pass [1]" << std::endl;
-        std::cin >> user_input;
-
+        std::cin >> score;
+        std::cout << "score: " << score << std::endl;
+        
         deck.pop();
+        card.update(score);
+        std::cout << "card updated interval: " << card.get_interval() << std::endl;
         deck.push(card);
         card = deck.top();
+
+        std::cout << "new top: " << card.get_front() << std::endl;
 
     }
 }
