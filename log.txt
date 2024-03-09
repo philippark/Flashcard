@@ -23,3 +23,15 @@ what i need:
 
 
 then for the future, slowly build the complexity of spaced repitition algo
+
+
+
+3/8/24:
+- today, let's get an audio input working and ask for audio input when showing front of the card.
+
+
+Timeline:
+- get flashcard mechanism working [+]
+- get audio input working: get audio input, store it, compare it to answer audio
+- implement actual spaced repitition algorithm
+- implement SQL databases to store flashcards and study decks and audio answers
