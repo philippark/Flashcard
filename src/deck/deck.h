@@ -7,9 +7,12 @@
 class Deck{
 public:
     Deck();
-    void add_card(Flashcard card);
+    Deck(std::string name_);
+    void create_card(std::string front, std::string back);
     void study();
+    std::string get_name();
 private:
     std::priority_queue<Flashcard> deck;
+    std::string name = "Unnamed";
 };
 #endif

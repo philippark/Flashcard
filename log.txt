@@ -31,7 +31,12 @@ then for the future, slowly build the complexity of spaced repitition algo
 
 
 Timeline:
-- get flashcard mechanism working [+]
-- get audio input working: get audio input, store it, compare it to answer audio
-- implement actual spaced repitition algorithm
+- get flashcard mechanism working:
+* allow user to create decks
+* allow user to create flashcards
+* allow user to select deck and study
+
+- implement actual spaced repitition algorithm  
+
 - implement SQL databases to store flashcards and study decks and audio answers
+- get audio input working: get audio input, store it, compare it to answer audio

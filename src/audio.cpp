@@ -3,20 +3,20 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
+
 int main(){
 
     if (!sf::SoundBufferRecorder::isAvailable()){
-        std::cout << "Error: no sound buffer recording avaialble" << std::endl;
+        std::cout << "Error: no sound buffer recording available" << std::endl;
     }
 
     sf::SoundBufferRecorder recorder;
-
-
-    recorder.start();
     sf::SoundBuffer recordingBuffer;
 
-    sf::RenderWindow window(sf::VideoMode(800, 800), "My window");
+    recorder.start();
 
+    /*
+    sf::RenderWindow window(sf::VideoMode(800, 800), "My window");
     while (window.isOpen())
     {
         sf::Event event;
@@ -32,8 +32,5 @@ int main(){
         }
     }
 
-
-
-    
-
+    */
 }

@@ -5,7 +5,16 @@ Deck::Deck(){
 
 }
 
-void Deck::add_card(Flashcard card){
+Deck::Deck(std::string name_){
+    name = name_;
+}
+
+std::string Deck::get_name(){
+    return name;
+}
+
+void Deck::create_card(std::string front, std::string back){
+    Flashcard card(front, back);
     deck.push(card);
 }
 
