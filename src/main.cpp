@@ -39,12 +39,14 @@ int main(){
 
     std::vector<Deck> decks;
 
+    /*
     Deck spanish_deck("Spanish");
     spanish_deck.create_card("Hello", "Hola");
     spanish_deck.create_card("My name is", "Me llamo es");
 
     decks.push_back(spanish_deck);
-
+    */
+   
     user_interface(decks);
     return 0;
 }
