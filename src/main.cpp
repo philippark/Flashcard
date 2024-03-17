@@ -2,9 +2,37 @@
 #include "flashcard/flashcard.h"
 #include "deck/deck.h"
 
-//this is where all the user interface should occur
-void interface(){
+void read_file(){
+    
+}
 
+void store_file(){
+
+}
+
+//this is where all the user interface should occur
+void user_interface(std::vector<Deck> &decks){
+    std::cout << "Welcome to VocalCards" << std::endl;
+    std::cout << "[1] Study a deck: " << std::endl;
+
+    for (int i = 0; i < decks.size(); i++){
+        std::cout << i << " " << decks[i].get_name() << std::endl;
+    }
+    std::cout << "[2] Create a deck" << std::endl;
+    std::cout << std::endl;
+
+    int user = 0;
+    std::cin >> user;
+
+    switch(user){
+        case 1:
+            int deck_number = 0;
+
+            std::cout << "Which deck?" << std::endl;
+            std::cin >> deck_number;
+            decks[deck_number].study();
+        
+    }
 }
 
 int main(){
@@ -17,27 +45,6 @@ int main(){
 
     decks.push_back(spanish_deck);
 
-    
-    int user = 0;
-
-    std::cout << "Welcome to VocalCards" << std::endl;
-    std::cout << "[1] Study a deck: " << std::endl;
-    for (int i = 0; i < decks.size(); i++){
-        std::cout << i << " " << decks[i].get_name() << std::endl;
-    }
-    std::cout << "[2] Create a deck" << std::endl;
-    std::cout << std::endl;
-
-    std::cin >> user;
-
-    switch(user){
-        case 1:
-            int deck_number = 0;
-
-            std::cout << "Which deck?" << std::endl;
-            std::cin >> deck_number;
-            decks[deck_number].study();
-        
-    }
+    user_interface(decks);
     return 0;
 }

@@ -29,7 +29,6 @@ then for the future, slowly build the complexity of spaced repitition algo
 3/8/24:
 - today, let's get an audio input working and ask for audio input when showing front of the card.
 
-
 Timeline:
 - get flashcard mechanism working:
 * allow user to create decks
@@ -40,3 +39,19 @@ Timeline:
 
 - implement SQL databases to store flashcards and study decks and audio answers
 - get audio input working: get audio input, store it, compare it to answer audio
+
+
+
+3/9/24:
+- implement storing decks into file, and retrieving info only from this file
+- abstract start page interface into a seperate function
+
+
+
+
+read in file, create decks obj
+create_card should store into file
+
+- read_file()
+- store_file()
+- user_interface()
