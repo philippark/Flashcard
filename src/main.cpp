@@ -1,9 +1,17 @@
 #include <iostream>
 #include "flashcard/flashcard.h"
 #include "deck/deck.h"
+#include <fstream>
 
-void read_file(){
-    
+void read_file(std::vector<Deck> &decks){
+    std::ifstream data;
+    data.open("src/decks_data.txt");
+
+    std::string mystring;
+
+    while(std::getline(data, mystring)){
+        std::cout << mystring << std::endl;
+    }
 }
 
 void store_file(){
@@ -38,6 +46,7 @@ void user_interface(std::vector<Deck> &decks){
 int main(){
 
     std::vector<Deck> decks;
+    read_file(decks);
 
     /*
     Deck spanish_deck("Spanish");
