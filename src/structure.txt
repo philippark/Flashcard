@@ -1,0 +1,36 @@
+
+files:
+- decks_file:
+    - list of deck_file names
+
+- deck_file:
+    -list of flashcard data
+
+deck 
+- list of flashcards
+- create_card: 
+    - takes file name, add card data to deck file
+
+main:
+    list of decks
+    read_file(decks)
+    user_interface()
+
+while decks_file not done being read:
+    get deck_file
+    while deck_file not done being read:
+    - if deck_id:, add current deck to list decks, create a new deck
+    - create flashcard with data, add to deck
+    after read_file, decks should be all the decks available
+
+user_interface:
+- welcome message, show all the decks available, ask user what they want to do, handle their inputs. 
+
+
+
+
+spaced_repetition: (basic mechanism, compare curr date and due date, set new due date based on parameters)
+- if curr_date > deck.due_date(): 
+    give,
+    deck.update(score)
+        - if score == 1 (pass): due_date = curr_date + day
