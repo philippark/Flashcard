@@ -5,17 +5,26 @@
 
 void read_file(std::vector<Deck> &decks){
     std::ifstream data;
-    data.open("src/decks_data.txt");
+    data.open("data/decks_data.txt");
 
-    std::string mystring;
+    std::string deck_name;
 
-    while(std::getline(data, mystring)){
-        std::cout << mystring << std::endl;
+    while(std::getline(data, deck_name)){
+        std::cout << deck_name << std::endl;
+        Deck deck(deck_name);
+
+        //open, and read the data file. in sep method
+
+        decks.push_back(deck);
     }
 }
 
-void store_file(){
+void read_deck(){
 
+}
+
+void store_file(){
+    
 }
 
 //this is where all the user interface should occur
@@ -47,14 +56,6 @@ int main(){
 
     std::vector<Deck> decks;
     read_file(decks);
-
-    /*
-    Deck spanish_deck("Spanish");
-    spanish_deck.create_card("Hello", "Hola");
-    spanish_deck.create_card("My name is", "Me llamo es");
-
-    decks.push_back(spanish_deck);
-    */
    
     user_interface(decks);
     return 0;
