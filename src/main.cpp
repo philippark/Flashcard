@@ -3,25 +3,34 @@
 #include "deck/deck.h"
 #include <fstream>
 
+void read_deck(std::string deck_name){
+    std::cout << deck_name << std::endl;
+    std::ifstream file("data/" + deck_name);
+    std::string data;
+
+    while (std::getline(file, data)){
+        std::cout << data << std::endl;
+    }
+}
+
 void read_file(std::vector<Deck> &decks){
-    std::ifstream data;
-    data.open("data/decks_data.txt");
+    std::ifstream file;
+    file.open("data/decks_data.txt");
 
     std::string deck_name;
 
-    while(std::getline(data, deck_name)){
+    while(std::getline(file, deck_name)){
         std::cout << deck_name << std::endl;
         Deck deck(deck_name);
 
         //open, and read the data file. in sep method
+        read_deck(deck_name + ".txt");
+
 
         decks.push_back(deck);
     }
 }
 
-void read_deck(){
-
-}
 
 void store_file(){
     
