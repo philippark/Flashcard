@@ -29,6 +29,38 @@ void Deck::study(){
         std::cout << std::endl;
 
         std::cout << card.get_front() << std::endl;
+
+        //record
+        if (!sf::SoundBufferRecorder::isAvailable()){
+            std::cout << "Error: no sound buffer recording available" << std::endl;
+        }
+
+        sf::SoundBufferRecorder recorder;
+        sf::SoundBuffer recordingBuffer;
+
+        recorder.start();
+
+        
+        sf::RenderWindow window(sf::VideoMode(800, 800), "My window");
+        while (window.isOpen())
+        {
+            sf::Event event;
+            while (window.pollEvent(event)) // This function has been renamed to PollEvent in SFML 2.0
+            {
+                if (event.type == sf::Event::Closed){
+                    recorder.stop();
+                    recordingBuffer = recorder.getBuffer();
+                    recordingBuffer.saveToFile("recording.ogg");
+                    window.close();
+                }
+
+            }
+        }
+
+        sf::Sound sound;
+        sound.setBuffer(recordingBuffer);
+        sound.play();
+
         std::cout << "[Reveal? [1]]" << std::endl;
 
         int user_input;

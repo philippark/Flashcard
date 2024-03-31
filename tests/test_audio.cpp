@@ -64,13 +64,7 @@ void user_interface(std::vector<Deck> &decks){
 int main(){
 
     std::vector<Deck> decks;
-    //read_file(decks);
-
-    Deck spanish("Spanish");
-    spanish.create_card("Hello", "Hola");
-
-    decks.push_back(spanish);
-
+    read_file(decks);
    
     user_interface(decks);
     return 0;
