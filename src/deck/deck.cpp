@@ -30,7 +30,42 @@ void Deck::study(){
 
         std::cout << card.get_front() << std::endl;
 
+        if (!sf::SoundBufferRecorder::isAvailable()){
+            std::cout << "Error: no sound buffer recording available" << std::endl;
+        }
+
+        sf::SoundBufferRecorder recorder;
+        sf::SoundBuffer recordingBuffer;
+        sf::Sound sound;
+
+
+        int record = 0;
+        std::cout << "Record: [1]" << std::endl;
+        std::cin >> record;
+
+        if (record == 1){
+            record = 0;
+
+            std::cout << "recording" << std::endl;
+            recorder.start();
+
+            std::cout << "Exit: [1]" << std::endl;
+            std::cin >> record;
+
+            if (record == 1){
+                std::cout << "recording ended" << std::endl;
+                recorder.stop();
+                recordingBuffer = recorder.getBuffer();
+                recordingBuffer.saveToFile("recording.ogg");
+
+                
+                sound.setBuffer(recordingBuffer);
+                sound.play();
+            }
+        }
+
         //record
+        /*
         if (!sf::SoundBufferRecorder::isAvailable()){
             std::cout << "Error: no sound buffer recording available" << std::endl;
         }
@@ -60,6 +95,7 @@ void Deck::study(){
         sf::Sound sound;
         sound.setBuffer(recordingBuffer);
         sound.play();
+        */
 
         std::cout << "[Reveal? [1]]" << std::endl;
 
@@ -69,6 +105,10 @@ void Deck::study(){
         switch (user_input){
             case 1:
                 std::cout << card.get_back() << std::endl;
+
+                std::cout << "playing sound" << std::endl;
+                sound.setBuffer(recordingBuffer);
+                sound.play();
         }
 
         int score;
