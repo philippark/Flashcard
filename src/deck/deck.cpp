@@ -24,21 +24,23 @@ void Deck::study(){
         return;
     }
 
+    std::cout << "STUDYING " << name << std::endl;
+
+    sf::SoundBufferRecorder recorder;
+    sf::SoundBuffer recordingBuffer;
+    sf::Sound sound;
+
+    if (!sf::SoundBufferRecorder::isAvailable()){
+        std::cout << "Error: no sound buffer recording available" << std::endl;
+    }
+
     Flashcard card = deck.top();
     while (card.get_interval() == 0){
         std::cout << std::endl;
 
         std::cout << card.get_front() << std::endl;
 
-        if (!sf::SoundBufferRecorder::isAvailable()){
-            std::cout << "Error: no sound buffer recording available" << std::endl;
-        }
-
-        sf::SoundBufferRecorder recorder;
-        sf::SoundBuffer recordingBuffer;
-        sf::Sound sound;
-
-
+        /*
         int record = 0;
         std::cout << "Record: [1]" << std::endl;
         std::cin >> record;
@@ -63,6 +65,7 @@ void Deck::study(){
                 sound.play();
             }
         }
+        */
 
         //record
         /*
@@ -96,8 +99,8 @@ void Deck::study(){
         sound.setBuffer(recordingBuffer);
         sound.play();
         */
-
-        std::cout << "[Reveal? [1]]" << std::endl;
+       
+        std::cout << "Reveal [1]" << std::endl;
 
         int user_input;
         std::cin >> user_input;
@@ -106,13 +109,15 @@ void Deck::study(){
             case 1:
                 std::cout << card.get_back() << std::endl;
 
+                /*
                 std::cout << "playing sound" << std::endl;
                 sound.setBuffer(recordingBuffer);
                 sound.play();
+                */
         }
 
         int score;
-        std::cout << "Fail [0], Pass [1]" << std::endl;
+        std::cout << "Fail [0] Pass [1]" << std::endl;
         std::cin >> score;
         std::cout << "score: " << score << std::endl;
         
@@ -124,5 +129,6 @@ void Deck::study(){
 
         std::cout << "new top: " << card.get_front() << std::endl;
 
+    
     }
 }

@@ -39,23 +39,27 @@ void store_file(){
 //this is where all the user interface should occur
 void user_interface(std::vector<Deck> &decks){
     std::cout << "Welcome to VocalCards" << std::endl;
-    std::cout << "[1] Study a deck: " << std::endl;
-
-    for (int i = 0; i < decks.size(); i++){
-        std::cout << i << " " << decks[i].get_name() << std::endl;
-    }
+    std::cout << "[1] Study a deck" << std::endl;
     std::cout << "[2] Create a deck" << std::endl;
     std::cout << std::endl;
 
     int user = 0;
+    std::cout << "Choice: " << std::endl;
     std::cin >> user;
 
     switch(user){
         case 1:
-            int deck_number = 0;
+            std::cout << "Decks: " << std::endl;
+            for (int i = 0; i < decks.size(); i++){
+                std::cout << i << "-" << decks[i].get_name() << std::endl;
+            }
+            std::cout << std::endl;
 
-            std::cout << "Which deck?" << std::endl;
+            int deck_number;
+
+            std::cout << "Select Deck Number: ";
             std::cin >> deck_number;
+
             decks[deck_number].study();
         
     }
