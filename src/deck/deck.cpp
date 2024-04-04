@@ -75,55 +75,33 @@ void Deck::study(){
             if (user_input == 2){
                 int record;
 
-                std::cout << "recording" << std::endl;
                 recorder.start();
 
                 std::cout << "Stop Recording: [1]" << std::endl;
                 std::cin >> record;
 
                 if (record == 1){
-                    std::cout << "recording ended" << std::endl;
                     recorder.stop();
                     recordingBuffer = recorder.getBuffer();
                     recordingBuffer.saveToFile("recording.ogg");
                 }
             }
         }
-    
 
-        switch (user_input){
-            case 1:
-                std::cout << card.get_back() << std::endl;
+        
+        sound.setBuffer(recordingBuffer);
 
-                std::cout << "playing sound" << std::endl;
-                sound.setBuffer(recordingBuffer);
+        std::cout << card.get_back() << std::endl;
+
+        int score = 0;
+        while (score != 1 && score != 2){
+            std::cout << "Fail [1] Pass [2] Play [3]" << std::endl;
+            std::cin >> score;
+
+            if (score == 3){
                 sound.play();
-                
-            
-            case 2:
-                int record;
-
-                std::cout << "recording" << std::endl;
-                recorder.start();
-
-                std::cout << "Stop Recording: [1]" << std::endl;
-                std::cin >> record;
-
-                if (record == 1){
-                    std::cout << "recording ended" << std::endl;
-                    recorder.stop();
-                    recordingBuffer = recorder.getBuffer();
-                    recordingBuffer.saveToFile("recording.ogg");
-
-                    
-                    //sound.setBuffer(recordingBuffer);
-                    //sound.play();
-                }
+            }
         }
-
-        int score;
-        std::cout << "Fail [0] Pass [1]" << std::endl;
-        std::cin >> score;
 
         deck.pop();
         card.update(score);

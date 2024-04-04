@@ -27,11 +27,11 @@ int Flashcard::get_interval(){
 void Flashcard::update(int score){
     switch (score){
         //failed
-        case 0:
+        case 1:
             interval = 0;
             break;
         //passed
-        case 1:
+        case 2:
             interval++;
             break;
     }
