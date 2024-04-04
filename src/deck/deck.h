@@ -17,8 +17,5 @@ private:
     std::priority_queue<Flashcard> deck;
     std::string name = "Unnamed";
 
-    //sf::SoundBufferRecorder recorder;
-    //sf::SoundBuffer recordingBuffer;
-    //sf::Sound sound;
 };
 #endif

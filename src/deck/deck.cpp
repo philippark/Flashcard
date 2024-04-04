@@ -40,33 +40,6 @@ void Deck::study(){
 
         std::cout << card.get_front() << std::endl;
 
-        /*
-        int record = 0;
-        std::cout << "Record: [1]" << std::endl;
-        std::cin >> record;
-
-        if (record == 1){
-            record = 0;
-
-            std::cout << "recording" << std::endl;
-            recorder.start();
-
-            std::cout << "Exit: [1]" << std::endl;
-            std::cin >> record;
-
-            if (record == 1){
-                std::cout << "recording ended" << std::endl;
-                recorder.stop();
-                recordingBuffer = recorder.getBuffer();
-                recordingBuffer.saveToFile("recording.ogg");
-
-                
-                sound.setBuffer(recordingBuffer);
-                sound.play();
-            }
-        }
-        */
-
         int user_input = 0;
         while (user_input != 1){
             std::cout << "Reveal [1] Record [2]" << std::endl;
