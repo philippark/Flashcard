@@ -67,67 +67,68 @@ void Deck::study(){
         }
         */
 
-        //record
-        /*
-        if (!sf::SoundBufferRecorder::isAvailable()){
-            std::cout << "Error: no sound buffer recording available" << std::endl;
-        }
+        int user_input = 0;
+        while (user_input != 1){
+            std::cout << "Reveal [1] Record [2]" << std::endl;
+            std::cin >> user_input;
 
-        sf::SoundBufferRecorder recorder;
-        sf::SoundBuffer recordingBuffer;
+            if (user_input == 2){
+                int record;
 
-        recorder.start();
+                std::cout << "recording" << std::endl;
+                recorder.start();
 
-        
-        sf::RenderWindow window(sf::VideoMode(800, 800), "My window");
-        while (window.isOpen())
-        {
-            sf::Event event;
-            while (window.pollEvent(event)) // This function has been renamed to PollEvent in SFML 2.0
-            {
-                if (event.type == sf::Event::Closed){
+                std::cout << "Stop Recording: [1]" << std::endl;
+                std::cin >> record;
+
+                if (record == 1){
+                    std::cout << "recording ended" << std::endl;
                     recorder.stop();
                     recordingBuffer = recorder.getBuffer();
                     recordingBuffer.saveToFile("recording.ogg");
-                    window.close();
                 }
-
             }
         }
-
-        sf::Sound sound;
-        sound.setBuffer(recordingBuffer);
-        sound.play();
-        */
-       
-        std::cout << "Reveal [1]" << std::endl;
-
-        int user_input;
-        std::cin >> user_input;
+    
 
         switch (user_input){
             case 1:
                 std::cout << card.get_back() << std::endl;
 
-                /*
                 std::cout << "playing sound" << std::endl;
                 sound.setBuffer(recordingBuffer);
                 sound.play();
-                */
+                
+            
+            case 2:
+                int record;
+
+                std::cout << "recording" << std::endl;
+                recorder.start();
+
+                std::cout << "Stop Recording: [1]" << std::endl;
+                std::cin >> record;
+
+                if (record == 1){
+                    std::cout << "recording ended" << std::endl;
+                    recorder.stop();
+                    recordingBuffer = recorder.getBuffer();
+                    recordingBuffer.saveToFile("recording.ogg");
+
+                    
+                    //sound.setBuffer(recordingBuffer);
+                    //sound.play();
+                }
         }
 
         int score;
         std::cout << "Fail [0] Pass [1]" << std::endl;
         std::cin >> score;
-        std::cout << "score: " << score << std::endl;
-        
+
         deck.pop();
         card.update(score);
-        std::cout << "card updated interval: " << card.get_interval() << std::endl;
         deck.push(card);
         card = deck.top();
-
-        std::cout << "new top: " << card.get_front() << std::endl;
 
     
     }
