@@ -38,16 +38,18 @@ void store_file(){
 
 //this is where all the user interface should occur
 void user_interface(std::vector<Deck> &decks){
-    std::cout << "Welcome to VocalCards" << std::endl;
-
     bool quit = false;
 
     while (!quit){
+        std::cout << "Welcome to VocalCards" << std::endl;
+
+        /*
         std::cout << "Decks: " << std::endl;
         for (int i = 0; i < decks.size(); i++){
             std::cout << i << "-" << decks[i].get_name() << std::endl;
         }
         std::cout << std::endl;
+        */
 
         std::cout << "[1] Study a deck" << std::endl;
         std::cout << "[2] Create a deck" << std::endl;
@@ -59,8 +61,31 @@ void user_interface(std::vector<Deck> &decks){
         std::cin >> user;
 
         switch(user){
-            case 3:
+            //study
+            case 1: {
+                int deck_number;
+
+                std::cout << "Select Deck Number: ";
+                std::cin >> deck_number;
+
+                decks[deck_number].study();
+            } break;
+
+            //create
+            case 2: {
+                std::string name;
+
+                std::cout << "Deck Name: " << std::endl;
+                std::cin >> name;
+
+                Deck new_deck = Deck(name);
+                decks.push_back(new_deck);
+            } break;
+
+            //quit
+            case 3: {
                 quit = true;
+            } break;
         }
     }
     std::cout << "[1] Study a deck" << std::endl;
@@ -71,7 +96,9 @@ void user_interface(std::vector<Deck> &decks){
     std::cout << "Choice: " << std::endl;
     std::cin >> user;
 
+    /*
     switch(user){
+        //study
         case 1:
             std::cout << "Decks: " << std::endl;
             for (int i = 0; i < decks.size(); i++){
@@ -86,6 +113,7 @@ void user_interface(std::vector<Deck> &decks){
 
             decks[deck_number].study();
     
+        //create
         case 2:
         std::string name;
 
@@ -96,6 +124,7 @@ void user_interface(std::vector<Deck> &decks){
         decks.push_back(new_deck);
 
     }
+    */
         
 }
 
